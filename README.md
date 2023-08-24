@@ -2,13 +2,14 @@
 
 ## Using what you learned , Create a new Blog website .
 
-- Users can read the blog posts.
-- Users can Add a blog post. 
+- Home page about the blog.
+- Posts page to view the posts.
+- Adding a new post page.
 
 
 ### Create model Post , it should have the following attributes :
 - Title : char field
 - Content : text field
-- is_published : boolean field
+- category : charfield (use text choices)
 - publish_date : datetime field
 
