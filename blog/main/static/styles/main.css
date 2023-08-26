@@ -1,0 +1,10 @@
+.nav{
+    background-color: rgba(51, 68, 146, 0) !important;
+}
+
+body {
+    background-image: url("https://assets-global.website-files.com/5e39e095596498a8b9624af1/5f6e93d250a6d04f4eae9f02_Backgrounds-WFU-thumbnail-(size).jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
