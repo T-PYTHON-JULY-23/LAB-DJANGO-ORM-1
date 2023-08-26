@@ -1,0 +1,41 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %} Add new post {% endblock %}
+
+
+{% block content %}
+    <div class="row">
+
+        <div class="col">
+            <h2>Adding post</h2>
+
+            <form  action="{% url 'post:add_post_view' %}" method="post" class="d-flex flex-column gap-2">
+                {% csrf_token %} 
+                <label>Title: </label>
+                <input type="text" name="title" />
+                
+                <label>Description: </label>
+                <textarea name="description"></textarea> 
+
+                <label>Rating: </label>
+                <select name="rating">
+                    <option value="1"> 1 Star </option>
+                    <option value="2"> 2 Star </option>
+                    <option value="3"> 3 Star </option>
+                    <option value="4"> 4 Star </option>
+                    <option value="5"> 5 Star </option>
+                </select>
+
+
+                <label>Publish Date:</label>
+                <input type="date" name="publish_date" />
+
+                <input type="submit" value="Add Book" class="btn btn-primary"/>
+
+            </form>
+
+        </div>
+
+    </div>
+{% endblock %}
