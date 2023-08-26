@@ -13,6 +13,6 @@ class Post(models.Model):
 
     title = models.CharField(max_length=2048, unique=True)
     content = models.TextField()
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=64, choices=CATEGORY_CHOICES)
     publish_date = models.DateTimeField()
 
