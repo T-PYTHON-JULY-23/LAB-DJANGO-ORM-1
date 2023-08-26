@@ -1,0 +1,37 @@
+
+{% extends 'main/base.html' %}
+
+
+{% block title %} All Posts in Our Blog {% endblock %}
+
+{% block content %}
+<div class="container pt-2">
+<h1> Our posts</h1>
+
+
+        {% for post in posts %}
+  
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          <img width="100%" class="bd-placeholder-img card-img-top" src=".."/>
+            <div class="card-body">
+            <p class="card-text">
+        {{post.title}}
+        {{post.content}}
+            </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{post.publish_date}}</small>
+                <small class="text-muted">{{post.category}}</small>
+
+              </div>
+            </div>
+          </div>
+        </div>
+           
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
