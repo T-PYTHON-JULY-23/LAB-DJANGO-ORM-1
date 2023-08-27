@@ -1,6 +1,6 @@
 # LAB-DJANGO-ORM-1
 
-## Using what you learned , Create a new Blog website .
+## Using what you learned , Create a new BlogWebsite .
 
 - Home page about the blog.
 - Posts page to view the posts.
