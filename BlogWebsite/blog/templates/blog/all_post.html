@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %} All posts in my blog {% endblock %}
+
+{% block content %}
+
+<h1> posts </h1>
+
+{% for post in post %}
+    <div class="border border-1 rounded-4 p-4 mt-1">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.Content }}</p>
+        <h6>category: {{ post.category }}</h6>
+    </div>
+{% endfor %}
+
+{% endblock %}
