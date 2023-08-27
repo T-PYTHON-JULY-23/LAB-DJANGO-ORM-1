@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %} All  {% endblock %}
+
+{% block content %}
+
+{% for news in new %}
+    <div class="border border-1 rounded-4 p-4 mt-1">
+        <h3>{{ news.title }}</h3>
+        <p>{{ news.content }}</p>
+        <h1>{{news.publish_date}}</h1>
+    </div>
+{% endfor %}
+
+{% endblock %}
