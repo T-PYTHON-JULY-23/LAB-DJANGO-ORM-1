@@ -15,12 +15,42 @@ def add_post_view(request: HttpRequest):
 
         return redirect("blog:all_post_view")
 
-    return render(request, 'blog/add_post.html')
+    return render(request, 'blog/add_post.html',{"category_choices":Blog.category_choices})
 
 
 
 def all_post_view(request: HttpRequest):
 
-    blog = Blog.objects.all()
+    blogs = Blog.objects.all()
 
-    return render(request, "blog/all_post.html", context = {"blog" : blog})
+    return render(request, "blog/all_post.html", context = {"blogs" : blogs})
+
+
+def details_post_view(request:HttpRequest, blog_id):
+
+    blog = Blog.objects.get(id=blog_id)
+
+    return render(request,"blog/details_post.html",{"blog" : blog})
+
+
+def update_post_view(request:HttpRequest,blog_id):
+       
+    blog = Blog.objects.get(id=blog_id)
+
+    if request.method == "POST":
+        blog.title = request.POST["title"]
+        blog.Content = request.POST["Content"]
+        blog.category = request.POST["category"]
+        blog.publish_date = request.POST["publish_date"]
+        blog.save()
+
+        return redirect("blog:details_post_view", blog_id=blog.id)
+
+    return render(request, "blog/update_post.html", {"blog": blog})
+
+
+def delete_post_view(request:HttpRequest,blog_id):
+    blog=Blog.objects.get(id=blog_id)
+    blog.delete()
+
+    return redirect("blog:all_post_view")

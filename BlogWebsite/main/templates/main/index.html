@@ -10,8 +10,8 @@
         <div class="d-flex flex-column justify-content-center align-items-center h-100 text-warning">
             <h1>Welcome to my blog</h1>
             <p> This is my favourite blog to read!</p>
-            <a  class="btn btn-info rounded rounded-5">view the posts</a>
-        </div>
+            <a  href="{% url 'blog:all_post_view' %}" class="btn btn-info rounded rounded-5">view the posts</a>
+        </div> 
 
     </div>
     <div class="col-12 col-md-6 g-0 order-1 order-md-2">

@@ -4,8 +4,8 @@
 
 
 {% block content %}
-
-    <div class="row">
+  
+    <div class="row aa">
 
         <div class="col" >
             <h2>Adding post</h2>
@@ -15,28 +15,26 @@
                 <label>Title: </label>
                 <input type="TextChoices" name="title" />
 
-                
-                <label>Content:</label>
-                <select name="Content:">
-                    <option value="1"> 1  </option>
-                    <option value="2"> 2  </option>
-                    <option value="3"> 3  </option>
-                    <option value="4"> 4  </option>
+                <label>Content: </label>
+                <textarea name="Content"></textarea> 
+          
+                <label>Category: </label>
+                <select name="category">
+                    {% for value, title in category_choices %}
+                        <option value="{{value}}">{{title}}</option>
+                    {% endfor %}
                 </select>
-                
-                <label>category: </label>
-                <textarea name="category"></textarea> 
 
 
                 <label>Publish Date:</label>
                 <input type="date" name="publish_date" />
 
-                <input type="submit" value="Add post" class="btn btn-primary"/>
+                <input type="submit" value="Add Post" class="btn btn-primary"/>
 
             </form>
 
         </div>
 
     </div>
- </div>
+ 
 {% endblock %}
