@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %} All page {% endblock %}
+
+{% block content %}
+<h1> Our Posts</h1>
+{% for Post in main %}
+<div class="border border-1 rounded-4 p-4 mt-1">
+    <h3>{{ Post.title }}</h3>
+    <p>{{ Post.Content }}</p>
+    <h6>{{ Post.publish_date }}</h6>
+</div>
+{% endfor %}
+{% endblock %}
+
+
