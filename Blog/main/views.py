@@ -5,18 +5,12 @@ from .models import post
 # Create your views here.
 
 def home_view(request : HttpRequest):
-
-    #to read a cookie
-    #mode = request.COOKIES.get("mode", "light")
-
-    return render(request, "main/index.html")
-
+    
+    return render(request,"main/index.html")
 
 def about_view(request: HttpRequest):
 
     return render(request, "main/about.html")
-
-
 
 def dark_view(request:HttpRequest):
 
@@ -25,7 +19,6 @@ def dark_view(request:HttpRequest):
     response.set_cookie("mode", "dark")
 
     return response
-
 
 def light_view(request:HttpRequest):
     
@@ -38,13 +31,12 @@ def add_post(request: HttpRequest):
 
     if request.method == "POST":
         #adding a post
-        new_post = post(title=request.POST["title"], description=request.POST["description"], rating= request.POST["rating"], publish_date=request.POST["publish_date"])
+        new_post = post(title=request.POST["title"], content=request.POST["description"], category= request.POST["rating"], publish_date=request.POST["publish_date"])
         new_post.save()
 
-        return redirect("posts:all_posts")
+        return redirect("main:all_posts")
 
     return render(request, 'main/add_post.html')
-
 
 def all_posts(request: HttpRequest):
 

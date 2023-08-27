@@ -10,16 +10,16 @@
         <div class="col">
             <h2>Adding post</h2>
 
-            <form  action="{% url 'post:add_post_view' %}" method="post" class="d-flex flex-column gap-2">
+            <form  action="{% url 'main:add_post' %}" method="post" class="d-flex flex-column gap-2">
                 {% csrf_token %} 
                 <label>Title: </label>
                 <input type="text" name="title" />
                 
-                <label>Description: </label>
-                <textarea name="description"></textarea> 
+                <label>content: </label>
+                <textarea name="content"></textarea> 
 
-                <label>Rating: </label>
-                <select name="rating">
+                <label>Category: </label>
+                <select name="category">
                     <option value="1"> 1 Star </option>
                     <option value="2"> 2 Star </option>
                     <option value="3"> 3 Star </option>
