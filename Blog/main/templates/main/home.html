@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{%block title%} Cooking Blog {%endblock%}
+
+{%block content%}
+    <div class="row  ">
+        <div class="col ">
+            <div class="contentt d-flex flex-column justify-content-center align-items-center h-100%">
+                <h1 style="color:white;">Easy and Delicious<br> Home Cooking Adventures</h1>
+                <a href="{%url 'main:all_recipes_view'%}" class="btn btn-outline-light rounded rounded-2">More</a>            
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

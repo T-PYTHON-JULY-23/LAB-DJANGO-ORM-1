@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{%block title%} Recipes {%endblock%}
+
+{%block content%}
+<h1>Latest Posts</h1>
+{% for post in posts %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.content }}</p>
+            <p class="card-text">Category: {{ post.category }}</p>
+            <p class="card-text">Published on: {{ post.publish_date }}</p>
+        </div>
+    </div>
+{% endfor %}
+{%endblock%}
