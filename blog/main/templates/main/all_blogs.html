@@ -1,0 +1,32 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block title %} Everyday Eclectica Blogs {% endblock %}
+
+{% block content %}
+
+<p class="row">
+    <p class="col">
+        <h1 class="title"> Everyday Eclectica Blogs | </h1>
+
+    </p>
+</p>
+
+{% for blog in blogs %}
+
+    <div class="border border-1 rounded-4 p-4 mt-1 blog_box row ">
+        <div class="col ">     
+        <h3 >{{ blog.title }}</h3>
+        
+        <p id="category">category: {{ blog.category }}</h6>
+        </div>
+        <div class="col">
+        <p>{{ blog.content }} </p>
+    </div>
+         </div>
+        </div>
+
+{% endfor %}
+
+
+{%endblock%} 
