@@ -2,7 +2,7 @@
 {% load static %}
 {% block title%} add {%endblock%}
 {% block content %}
-<form action="{% url 'blog:add_post_view'%}" method="post" class="d-flex flex-column justify-content-center align-items-center">
+<form action="{ % url 'blog:add_post_view' % }" method="post" class="d-flex flex-column justify-content-center align-items-center">
     {% csrf_token %} 
 
     <label style="font-size: 26px;"> Title </label>
