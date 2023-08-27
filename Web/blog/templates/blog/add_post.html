@@ -2,7 +2,18 @@
 {% load static %}
 {% block title%} add {%endblock%}
 {% block content %}
-<form action="{ % url 'blog:add_post_view' % }" method="post" class="d-flex flex-column justify-content-center align-items-center">
+<style>
+    body {
+        background-image: url("/static/images/blog.jpg");
+        height: 100%;
+        width: 100%;
+        background-position:center ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    </style>
+<form action="{% url 'blog:add_post_view' %}" method="post" class="d-flex flex-column justify-content-center align-items-center">
     {% csrf_token %} 
 
     <label style="font-size: 26px;"> Title </label>
@@ -27,7 +38,7 @@
     <label class="mt-3" style="font-size: 25px;"> Publish Date </label>
     <input type="datetime-local" name="publish_date">
 
-    <input type="submit" value="Add Plog" class="btn btn-primary mt-4"/> 
+    <input type="submit" value="Add Your Blog!" class="btn btn-primary mt-4"/> 
 
 </form>
 </div>
