@@ -15,32 +15,29 @@
 
 {%block content%}
 
-
+<div class="row">
 {% for p in posts%}
 
-<div class="container"> 
-<div class="accordion  mt-2 " id="accordionpost" >
-    <div class="accordion-item ">
-      <h2 class="accordion-header">
-        <button style="font-size: 50px;" class="accordion-button bg-warning " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-            {{p.title}}
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionpost">
-        <div class="accordion-body">
-            <div>
-                <h3> content: {{p.content}} </h3>
-                <h3> category: {{p.category}} </h3>
-                <h3> publish_date: {{p.publish_date}} </h3>
-            </div>
-        </div>
+<div class="col-4 mt-4 ">
+  <div class="d-flex flex-column gap-3 border border-1 rounded-4 p-4 mt-1 h-100 bg-warning">
+      <h3>{{ p.title }}</h3>
+      <div class="d-flex justify-content-between align-items-center">
+          <h6>{{ p.content }}</h6>
+          <div class="d-flex gap-1 align-items-center">
+              <h6 class="p-0 m-0"> {{p.category}}</h6>
+          </div>     
       </div>
-    </div>
+      <a href="{% url 'blog:detail_post_view' p.id %}"> <button type="button" class=" btn text-decoration-none bg-danger"> <h5> Read more </h5> </button></a>
+      <div>
 
+      </div>
+  </div>
 </div>
 
-{% endfor %}
 
+
+{% endfor %}
+</div>
 
 
 
