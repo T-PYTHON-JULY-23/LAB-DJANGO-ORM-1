@@ -4,7 +4,7 @@
 
 {%block content%}
 <h1>Add a New Post</h1>
-<form method="post">
+<form action="{%url 'main:add_post'%}" method="post">
     {% csrf_token %}
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -24,7 +24,7 @@
     </div>
     <div class="mb-3">
         <label for="publish_date" class="form-label">Publish Date</label>
-        <input type="datetime-local" class="form-control" id="publish_date" name="publish_date">
+        <input type="date" class="form-control" id="publish_date" name="publish_date">
     </div>
     <button type="submit" class="btn btn-primary">Add Post</button>
 </form>
