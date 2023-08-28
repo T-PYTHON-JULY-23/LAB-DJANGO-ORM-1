@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from .models import Post
+from django.http import Http404
 
 
 # Create your views here.
@@ -28,10 +29,18 @@ def view_post(request:HttpRequest):
 
 
 def detail_posts(request:HttpRequest, post_id):
-    
-    posts = Post.objects.get(id=post_id)
-    return render (request,'blog/detail_posts.html', {'posts':posts})
+    try:
+        posts = Post.objects.get(id=post_id)
+        return render (request,'blog/detail_posts.html', {'posts':posts})
+    except Post.DoesNotExist:
+       raise Http404("Given post not found....")
 
+
+
+    
+        
+    
+        
 
 
 def update_post(request:HttpRequest, post_id):
