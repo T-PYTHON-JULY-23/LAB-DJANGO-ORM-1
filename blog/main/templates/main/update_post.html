@@ -6,8 +6,8 @@
 {% block content %}
 
 <div class="row ">
-    <h2>Adding post</h2>
-    <form action="{% url 'main:update_view' post.id %}" method="post">
+    <h2>Update post</h2>
+    <form action="{% url 'main:update_view' post.id %}" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label">Title</label>
@@ -27,8 +27,12 @@
                     <option value="business" {% if post.category == "business" %} selected {% endif%}> business
                     </option>
                 </select>
+                <div class="mb-3">
+                    <label>Choose Image: </label>
+                    <input type="file" name="image" class="form-control"/>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Add Post</button>
+            <button type="submit" class="btn btn-primary">Update Post</button>
     </form>
 
 </div>

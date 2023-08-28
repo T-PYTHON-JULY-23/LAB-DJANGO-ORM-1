@@ -30,16 +30,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'main:all_posts_view' %}">Posts</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Dropdown
+                        Category
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href=""></a></li>
-                        <li><a class="dropdown-item" href=""></a></li>
+                        <li><a class="dropdown-item" href="{% url 'main:filter_view' %}?fashion=true">fashion</a></li>
+                        <li><a class="dropdown-item" href="{% url 'main:filter_view' %}?cooking=true">cooking</a></li>
+                        <li><a class="dropdown-item" href="{% url 'main:filter_view' %}?lifestyle=true">lifestyle</a></li>
+                        <li><a class="dropdown-item" href="{% url 'main:filter_view' %}?reviews=true">reviews</a></li>
+                        <li><a class="dropdown-item" href="{% url 'main:filter_view' %}?business=true">business</a></li>
                     </ul>
-                </li> -->
+                </li>
             </ul>
             <form class="d-flex" role="search" method="get" action="{% url 'main:filter_view' %}">
                 {% csrf_token %}
