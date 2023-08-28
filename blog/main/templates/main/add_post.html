@@ -7,7 +7,7 @@
 
 <div class="row ">
     <h2>Adding post</h2>
-    <form action="{% url 'main:add_post_view' %}" method="post">
+    <form action="{% url 'main:add_post_view' %}" enctype="multipart/form-data"  method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label">Title</label>
@@ -25,6 +25,10 @@
                     <option value="reviews"> reviews </option>
                     <option value="business"> business </option>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label>Choose Image: </label>
+                <input type="file" name="image" class="form-control"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Publish Date:</label>

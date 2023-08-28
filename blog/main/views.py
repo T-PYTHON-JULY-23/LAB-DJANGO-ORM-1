@@ -8,7 +8,7 @@ def home_view(request: HttpRequest):
 
 def add_post_view(request: HttpRequest):
     if request.method == "POST":
-        new_post = Post(title=request.POST["title"], content=request.POST["content"], category=request.POST["category"], publish_date=request.POST["publish_date"])
+        new_post = Post(title=request.POST["title"], content=request.POST["content"], category=request.POST["category"], publish_date=request.POST["publish_date"],image=request.FILES["image"])
         new_post.save()
 
         return redirect("main:all_posts_view")
@@ -50,10 +50,11 @@ def delete_view(request: HttpRequest,post_id):
 
     return redirect("main:all_posts_view")
 
-# def filter_view(request:HttpRequest):
-#     if request.method == "POST":
-#         user_input = request.POST['user_input']
-#         post = Post.objects.filter(title__contains=user_input)
+def filter_view(request:HttpRequest):
+    if "search" in request.GET:
+        posts = Post.objects.filter(title__contains=request.GET["search"])
+    else:
+        posts = Post.objects.all()
 
 
-#     return render("main/filter_post.html",{"post" : post,})
+    return render(request,"main/filter_post.html",{"posts" : posts,})
