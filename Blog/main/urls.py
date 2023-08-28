@@ -9,5 +9,5 @@ urlpatterns = [
     path('mode/dark/', views.dark_view, name="dark_view"),
     path('mode/light/', views.light_view, name="light_view"),
     path("add/", views.add_post, name="add_post"),
-    path("all/", views.all_posts, name="all_posts"),
+    path("all/", views.all_posts, name="all_posts")
 ]
