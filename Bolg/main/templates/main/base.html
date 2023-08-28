@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -34,10 +35,17 @@
                   </li>
                   
                 </ul>
-                <form role="search">
-                  <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                </form>
-
+                <form class="d-flex" role="search" method="POST" action="{% url 'main:search_view' %}">
+                  {% csrf_token %}
+                  <input
+                     class="form-control me-2"
+                     type="search"
+                     placeholder="Search"
+                     name="search_query"
+                     required aria-label="Search"
+                  >
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                 </form>
         
               </div>
             </div>
