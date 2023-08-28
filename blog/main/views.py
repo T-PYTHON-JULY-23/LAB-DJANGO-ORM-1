@@ -8,7 +8,7 @@ def home_view(request: HttpRequest):
 
 def add_post_view(request: HttpRequest):
     if request.method == "POST":
-        new_post = Post(title=request.POST["title"], content=request.POST["content"], category=request.POST["category"], publish_date=request.POST["publish_date"],image=request.FILES["image"])
+        new_post = Post(title=request.POST["title"], content=request.POST["content"], category=request.POST["category"],image=request.FILES["image"])
         new_post.save()
 
         return redirect("main:all_posts_view")
@@ -36,7 +36,8 @@ def update_view(request: HttpRequest,post_id):
         post.title = request.POST["title"]
         post.content = request.POST["content"]
         post.category = request.POST["category"]
-        post.publish_date = request.POST["publish_date"]
+        if "image" in request.FILES:
+            post.image = request.FILES["image"]
         post.save()
 
         return redirect("main:post_detail_view", post_id= post.id)
